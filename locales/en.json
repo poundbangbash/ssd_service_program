@@ -1,6 +1,6 @@
 {
 	"ssd_service_program": "SSD Service Program",
-	"needs_serivce": "Needs Service",
+	"needs_service": "Needs Service",
 	"true": "True",
 	"false": "False"
 }
