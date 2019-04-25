@@ -6,7 +6,7 @@ class Ssd_service_program_model extends \Model
 {
     public function __construct($serial = '')
     {
-        parent::__construct('id', 'mdm_status'); //primary key, tablename
+        parent::__construct('id', 'needs_service'); //primary key, tablename
         $this->rs['id'] = '';
         $this->rs['serial_number'] = $serial; //$this->rt['serial_number'] = 'VARCHAR(255) UNIQUE';
         $this->rs['needs_service'] = null;
