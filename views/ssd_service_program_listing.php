@@ -95,7 +95,7 @@ new Munkireport_model;
 
             var needs_service = $('td:eq(3)', nRow).html();
             $('td:eq(3)', nRow).html(function(){
-                if( needs_service ){
+                if( needs_service == "True" ){
                     return '<span class="label label-danger">'+i18n.t('ssd_service_program.true')+'</span>';
                 }
                 return '<span class="label label-success">'+i18n.t('ssd_service_program.false')+'</span>';

@@ -89,11 +89,11 @@ def main():
         ssd_specs = flatten_ssd_info(info)
         if 'SM0256L' in ssd_specs[0].get("model"):
             if 'CXS4JA0Q' in ssd_specs[0].get("revision"):
-                result['needs_service'] = True
+                result['needs_service'] = "True"
             else:
-                result['needs_service'] = False
+                result['needs_service'] = "False"
         else:
-            result['needs_service'] = False
+            result['needs_service'] = "False"
             
     # Write mdm status results to cache
     output_plist = os.path.join(cachedir, 'ssd_service_program.plist')
