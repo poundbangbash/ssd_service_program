@@ -15,9 +15,9 @@ class SSDServiceProgramInitialize extends Migration
         $capsule::schema()->create('ssd_service_program', function (Blueprint $table) {
             $table->increments('id');
             $table->string('serial_number')->unique();
-            $table->boolean('needs_serivce')->nullable();
+            $table->boolean('needs_service')->nullable();
 
-            $table->index('needs_serivce');
+            $table->index('needs_service');
         });
     }
 
