@@ -61,6 +61,8 @@ def flatten_ssd_info(array):
     
 def validate_SN():
     serial_number = get_hardware_serial()
+    # If the serial number's 4th character is V or W it is Late 2017 or Early 2018
+    #  reference: https://beetstech.com/blog/decode-meaning-behind-apple-serial-number
     if serial_number[3] in {"V", "W"}:
         return True
     else: 
@@ -87,7 +89,9 @@ def main():
     else:
         info = get_ssd_info()
         ssd_specs = flatten_ssd_info(info)
+        # Specific model is vulnerable
         if 'SM0256L' in ssd_specs[0].get("model"):
+            # Specific revision of the ssd firmware is vulnerable
             if 'CXS4JA0Q' in ssd_specs[0].get("revision"):
                 result['needs_service'] = "True"
             else:
@@ -98,7 +102,7 @@ def main():
     result['ssd_model'] = ssd_specs[0].get("model")
     result['ssd_revision'] = ssd_specs[0].get("revision")
     
-    # Write mdm status results to cache
+    # Write results to cache
     output_plist = os.path.join(cachedir, 'ssd_service_program.plist')
     plistlib.writePlist(result, output_plist)
 
