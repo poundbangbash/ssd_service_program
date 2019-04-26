@@ -22,10 +22,7 @@ class Ssd_service_program_model extends \Model
 
         // Schema version, increment when creating a db migration
         $this->schema_version = 1;
-        
-        // Create table if it does not exist
-       //$this->create_table();
-        
+                
         if ($serial) {
             $this->retrieve_record($serial);
         }
@@ -58,4 +55,15 @@ class Ssd_service_program_model extends \Model
         }
         $this->save();
     }
+
+    public function get_ssd_service_program_stats()
+    {
+        $sql = "SELECT COUNT(CASE WHEN needs_service = 'True' THEN 1 END) AS needs_service,
+			FROM ssd_service_program
+			LEFT JOIN reportdata USING (serial_number)
+			".get_machine_group_filter();
+        return current($this->query($sql));
+    }
+
+
 }

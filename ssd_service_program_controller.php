@@ -44,4 +44,17 @@ class Ssd_service_program_controller extends Module_controller
         $obj->view('json', array('msg' => $out));
     }
 
+    public function get_ssd_service_program_stats()
+    {
+        $obj = new View();
+
+        if (! $this->authorized()) {
+            $obj->view('json', array('msg' => 'Not authorized'));
+            return;
+        }
+
+        $needs_service = new Ssd_service_program_model;
+        $obj->view('json', array('msg' => $needs_service->get_ssd_service_program_stats()));
+    }
+
 } // END class default_module
