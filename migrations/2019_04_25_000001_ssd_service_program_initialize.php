@@ -16,8 +16,13 @@ class SSDServiceProgramInitialize extends Migration
             $table->increments('id');
             $table->string('serial_number')->unique();
             $table->string('needs_service')->nullable();
+            $table->string('ssd_model')->nullable();
+            $table->string('ssd_revision')->nullable();
+           
 
             $table->index('needs_service');
+            $table->index('ssd_model');
+            $table->index('ssd_revision');
         });
     }
 

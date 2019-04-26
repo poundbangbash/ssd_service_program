@@ -10,10 +10,15 @@ class Ssd_service_program_model extends \Model
         $this->rs['id'] = '';
         $this->rs['serial_number'] = $serial; //$this->rt['serial_number'] = 'VARCHAR(255) UNIQUE';
         $this->rs['needs_service'] = null;
+        $this->rs['ssd_model'] = null;
+        $this->rs['ssd_revision'] = null;
+        
         
         // Add indexes
         $this->idx[] = array('serial_number');
         $this->idx[] = array('needs_service');
+        $this->idx[] = array('ssd_model');
+        $this->idx[] = array('ssd_revision');
 
         // Schema version, increment when creating a db migration
         $this->schema_version = 1;
@@ -44,7 +49,7 @@ class Ssd_service_program_model extends \Model
 
         $plist = $parser->toArray();
 
-        foreach (array('needs_service') as $item) {
+        foreach (array('needs_service', 'ssd_model', 'ssd_revision') as $item) {
             if (isset($plist[$item])) {
                 $this->$item = $plist[$item];
             } else {

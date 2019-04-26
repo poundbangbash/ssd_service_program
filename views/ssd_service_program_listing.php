@@ -23,6 +23,8 @@ new Munkireport_model;
 		        <th data-i18n="serial" data-colname='reportdata.serial_number'></th>
                 <th data-i18n="username" data-colname='reportdata.long_username'></th>
                 <th data-i18n="ssd_service_program.needs_service" data-colname='ssd_service_program.needs_service'></th>
+                <th data-i18n="ssd_service_program.ssd_model" data-colname='ssd_service_program.ssd_model'></th>
+                <th data-i18n="ssd_service_program.ssd_revision" data-colname='ssd_service_program.ssd_revision'></th>
                 <th data-i18n="listing.machine_model" data-colname='machine.machine_model'>Gestalt</th>
                 <th data-i18n="listing.machine_desc" data-colname='machine.machine_desc'>Human Name</th>
                 <th data-i18n="listing.department.department" data-colname='department.department'>Department</th>
@@ -102,9 +104,9 @@ new Munkireport_model;
             });
 
             // Format date
-            var checkin = parseInt($('td:eq(7)', nRow).html());
+            var checkin = parseInt($('td:eq(9)', nRow).html());
             var date = new Date(checkin * 1000);
-            $('td:eq(7)', nRow).html(moment(date).fromNow());
+            $('td:eq(9)', nRow).html(moment(date).fromNow());
 
 	        }
     });
