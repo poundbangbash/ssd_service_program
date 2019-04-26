@@ -1,7 +1,7 @@
 <div class="col-lg-4 col-md-6">
     <div class="panel panel-default" id="ssd_service_program-widget">
         <div class="panel-heading" data-container="body" title="">
-            <h3 class="panel-title"><i class="fa fa-hdd-o"></i>"></i>
+            <h3 class="panel-title"><i class="fa fa-hdd-o"></i>
                 <span data-i18n="ssd_service_program.ssd_service_program"></span>
                 <list-link data-url="/show/listing/ssd_service_program/ssd_service_program"></list-link>
             </h3>
@@ -26,7 +26,7 @@ $(document).on('appUpdate', function(e, lang) {
 
 		// Set statuses
         if(data.needs_service){
-			panel.append(' <a href="'+baseUrl+'True" class="btn btn-danger"><span class="bigger-150">'+data.needs_service+'</span><br>'+i18n.t('ssd_service_program.true')+'</a>');
+			panel.append(' <a href="'+baseUrl+'True" class="btn btn-danger"><span class="bigger-150">'+data.needs_service+'</span><br>'+i18n.t('ssd_service_program.needs_service')+'</a>');
 		}
     });
 });
