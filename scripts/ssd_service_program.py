@@ -99,8 +99,8 @@ def main():
         else:
             result['needs_service'] = "False"
     
-    result['ssd_model'] = ssd_specs[0].get("model")
-    result['ssd_revision'] = ssd_specs[0].get("revision")
+        result['ssd_model'] = ssd_specs[0].get("model")
+        result['ssd_revision'] = ssd_specs[0].get("revision")
     
     # Write results to cache
     output_plist = os.path.join(cachedir, 'ssd_service_program.plist')
