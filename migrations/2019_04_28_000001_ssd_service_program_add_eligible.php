@@ -12,8 +12,7 @@ class SSDServiceProgramAddEligible extends Migration
     
         $capsule = new Capsule();
 
-        $capsule::schema()->create('ssd_service_program', function (Blueprint $table) {
-            $table->increments('id');
+        $capsule::schema()->table('ssd_service_program', function (Blueprint $table) {
             $table->string('eligible')->nullable();
            
 
