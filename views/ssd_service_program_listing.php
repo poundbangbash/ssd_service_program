@@ -110,6 +110,17 @@ new Munkireport_model;
                 return '<span class="label label-success">'+i18n.t('ssd_service_program.false')+'</span>';
             });
 
+            // Format Eligibility column
+            $('td:eq(4)', nRow).html(function(){
+                if( eligible == "Eligible"){
+                    return '<span>'+i18n.t('ssd_service_program.eligible')+'</span>';
+                }
+                 if( eligible == "NotEligible"){
+                    return '<span>'+i18n.t('ssd_service_program.not_eligible')+'</span>';
+                }
+               return '<span>'+i18n.t('ssd_service_program.unknown')+'</span>';
+            });
+
             // Format date
             var checkin = parseInt($('td:eq(10)', nRow).html());
             var date = new Date(checkin * 1000);
