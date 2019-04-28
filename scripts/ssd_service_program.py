@@ -35,7 +35,7 @@ def hw_model():
                             stdout=subprocess.PIPE, stderr=subprocess.PIPE)
     (output, unused_error) = proc.communicate()
     
-    return output
+    return output.strip()
 
     
 def get_ssd_info():
@@ -96,7 +96,7 @@ def main():
     # Get results
     result = dict()
 
-    if hw_model() is "MacBookPro14,1":
+    if hw_model() == "MacBookPro14,1":
         if not validate_SN():
             result['eligible'] = "NotEligible"
             result['needs_service'] = "False"
