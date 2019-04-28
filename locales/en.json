@@ -5,7 +5,7 @@
 	"needs_service": "Needs Service",
 	"true": "True",
 	"false": "False",
-	"eligible": "Eligible"
+	"eligible": "Eligible",
 	"not_eligible": "Not Eligible",
 	"unknown": "Unknown"
 }
