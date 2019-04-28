@@ -98,20 +98,24 @@ new Munkireport_model;
 
             // Format Needs Service column
             var needs_service = $('td:eq(3)', nRow).html();
+            var eligible = $('td:eq(4)', nRow).html();
+
             $('td:eq(3)', nRow).html(function(){
                 if( needs_service == "True" ){
                     return '<span class="label label-danger">'+i18n.t('ssd_service_program.true')+'</span>';
+                }
+                if( needs_service == "False" && eligible == "NotEligible"){
+                    return '<span class="label label-info">'+i18n.t('ssd_service_program.false')+'</span>';
                 }
                 return '<span class="label label-success">'+i18n.t('ssd_service_program.false')+'</span>';
             });
 
             // Format Eligibility column
-            var eligible = $('td:eq(4)', nRow).html();
             $('td:eq(4)', nRow).html(function(){
-                if( eligible == "Eligible" ){
+                if( eligible == "Eligible"){
                     return '<span class="label label-danger">'+i18n.t('ssd_service_program.eligible')+'</span>';
                 }
-                 if( eligible == "NotEligible" ){
+                 if( eligible == "NotEligible"){
                     return '<span class="label label-info">'+i18n.t('ssd_service_program.not_eligible')+'</span>';
                 }
                return '<span class="label label-secondary">'+i18n.t('ssd_service_program.unknown')+'</span>';
