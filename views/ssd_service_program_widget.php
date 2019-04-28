@@ -28,6 +28,12 @@ $(document).on('appUpdate', function(e, lang) {
         if(data.needs_service){
 			panel.append(' <a href="'+baseUrl+'True" class="btn btn-danger"><span class="bigger-150">'+data.needs_service+'</span><br>'+i18n.t('ssd_service_program.needs_service')+'</a>');
 		}
+        if(data.eligible){
+			panel.append(' <a href="'+baseUrl+'Eligible" class="btn btn-success"><span class="bigger-150">'+data.eligible+'</span><br>'+i18n.t('ssd_service_program.not_eligible')+'</a>');
+		}
+        if(data.not_eligible){
+			panel.append(' <a href="'+baseUrl+'NotEligible" class="btn btn-secondary"><span class="bigger-150">'+data.not_eligible+'</span><br>'+i18n.t('ssd_service_program.not_eligible')+'</a>');
+		}
     });
 });
 </script>

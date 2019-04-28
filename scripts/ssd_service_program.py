@@ -26,6 +26,18 @@ def io_key(keyname):
 def get_hardware_serial():
     return io_key("IOPlatformSerialNumber")
 
+
+def hw_model():
+    '''Uses sysctl to get hw.model.'''
+    cmd = ['/usr/sbin/sysctl', '-n', 'hw.model']
+    proc = subprocess.Popen(cmd, shell=False, bufsize=-1,
+                            stdin=subprocess.PIPE,
+                            stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+    (output, unused_error) = proc.communicate()
+    
+    return output
+
+    
 def get_ssd_info():
     '''Uses system_profiler command to get NVMe data.'''
     cmd = ['/usr/sbin/system_profiler', 'SPNVMeDataType', '-xml']
@@ -84,24 +96,31 @@ def main():
     # Get results
     result = dict()
 
-    if not validate_SN():
-        result = {}
-    else:
-        info = get_ssd_info()
-        ssd_specs = flatten_ssd_info(info)
-        # Specific model is vulnerable
-        if 'SM0256L' in ssd_specs[0].get("model"):
-            # Specific revision of the ssd firmware is vulnerable
-            if 'CXS4JA0Q' in ssd_specs[0].get("revision"):
-                result['needs_service'] = "True"
-            else:
-                result['needs_service'] = "False"
-        else:
+    if hw_model() is "MacBookPro14,1":
+        if not validate_SN():
+            result['eligible'] = "NotEligible"
             result['needs_service'] = "False"
+        else:
+            info = get_ssd_info()
+            ssd_specs = flatten_ssd_info(info)
+            # Specific model is vulnerable
+            if 'SM0256L' in ssd_specs[0].get("model"):
+                result['eligible'] = "Eligible"
+                # Specific revision of the ssd firmware is vulnerable
+                if 'CXS4JA0Q' in ssd_specs[0].get("revision"):
+                    result['needs_service'] = "True"
+                else:
+                    result['needs_service'] = "False"
+            else:
+                result['eligible'] = "NotEligible"
+                result['needs_service'] = "False"
     
-        result['ssd_model'] = ssd_specs[0].get("model")
-        result['ssd_revision'] = ssd_specs[0].get("revision")
-    
+            result['ssd_model'] = ssd_specs[0].get("model")
+            result['ssd_revision'] = ssd_specs[0].get("revision")
+    else:
+        result['eligible'] = "NotEligible"
+        result['needs_service'] = "False"
+        
     # Write results to cache
     output_plist = os.path.join(cachedir, 'ssd_service_program.plist')
     plistlib.writePlist(result, output_plist)

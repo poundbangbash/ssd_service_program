@@ -4,5 +4,8 @@
 	"ssd_revision": "SSD Revision",
 	"needs_service": "Needs Service",
 	"true": "True",
-	"false": "False"
+	"false": "False",
+	"eligible": "Eligible"
+	"not_eligible": "Not Eligible",
+	"unknown": "Unknown"
 }
