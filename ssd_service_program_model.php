@@ -63,7 +63,7 @@ class Ssd_service_program_model extends \Model
     {
         $sql = "SELECT COUNT(CASE WHEN needs_service = 'True' THEN 1 END) AS needs_service,
             COUNT(CASE WHEN eligible = 'Eligible' THEN 1 END) AS eligible,
-            COUNT(CASE WHEN eligible = 'NotEligible' THEN 1 END) AS not_eligible
+            COUNT(CASE WHEN eligible = 'NotEligible' THEN 1 END) AS not_eligible,
             COUNT(CASE WHEN ssd_revision = 'CXS4LA0Q' THEN 1 END) AS repaired
             FROM ssd_service_program
 			LEFT JOIN reportdata USING (serial_number)
