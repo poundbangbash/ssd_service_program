@@ -32,7 +32,7 @@ $(document).on('appUpdate', function(e, lang) {
 			panel.append(' <a href="'+baseUrl+'Eligible" class="btn btn-info"><span class="bigger-150">'+data.eligible+'</span><br>'+i18n.t('ssd_service_program.eligible')+'</a>');
 		}
         if(data.repaired){
-			panel.append(' <a href="'+baseUrl+'" class="btn btn-success"><span class="bigger-150">'+data.repaired+'</span><br>'+i18n.t('ssd_service_program.repaired')+'</a>');
+			panel.append(' <a href="'+baseUrl+'CXS4LA0Q" class="btn btn-success"><span class="bigger-150">'+data.repaired+'</span><br>'+i18n.t('ssd_service_program.repaired')+'</a>');
 		}
     });
 });
