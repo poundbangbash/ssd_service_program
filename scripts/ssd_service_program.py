@@ -98,7 +98,7 @@ def main():
 
     if hw_model() == "MacBookPro14,1":
         if not validate_SN():
-            result['eligible'] = "NotEligible"
+            result['eligible'] = "NotElig"
             result['needs_service'] = "False"
         else:
             info = get_ssd_info()
@@ -112,13 +112,13 @@ def main():
                 else:
                     result['needs_service'] = "False"
             else:
-                result['eligible'] = "NotEligible"
+                result['eligible'] = "NotElig"
                 result['needs_service'] = "False"
     
             result['ssd_model'] = ssd_specs[0].get("model")
             result['ssd_revision'] = ssd_specs[0].get("revision")
     else:
-        result['eligible'] = "NotEligible"
+        result['eligible'] = "NotElig"
         result['needs_service'] = "False"
         
     # Write results to cache

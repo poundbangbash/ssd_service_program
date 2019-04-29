@@ -104,7 +104,7 @@ new Munkireport_model;
                 if( needs_service == "True" ){
                     return '<span class="label label-danger">'+i18n.t('ssd_service_program.true')+'</span>';
                 }
-                if( needs_service == "False" && eligible == "NotEligible"){
+                if( needs_service == "False" && eligible == "NotElig"){
                     return '<span class="label label-info">'+i18n.t('ssd_service_program.false')+'</span>';
                 }
                 return '<span class="label label-success">'+i18n.t('ssd_service_program.false')+'</span>';
@@ -118,7 +118,7 @@ new Munkireport_model;
                 if( eligible == "Eligible" && needs_service == "False"){
                     return '<span class="label label-success">'+i18n.t('ssd_service_program.repaired')+'</span>';
                 }
-                 if( eligible == "NotEligible"){
+                 if( eligible == "NotElig"){
                     return '<span class="label label-info">'+i18n.t('ssd_service_program.not_eligible')+'</span>';
                 }
                return '<span class="label label-secondary">'+i18n.t('ssd_service_program.unknown')+'</span>';
