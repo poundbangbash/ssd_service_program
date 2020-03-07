@@ -3,6 +3,7 @@
         <div class="panel-heading" data-container="body" title="">
             <h3 class="panel-title"><i class="fa fa-hdd-o"></i>
                 <span data-i18n="ssd_service_program.ssd_service_program"></span>
+				—&nbsp;<a href="https://support.apple.com/en-gb/13-inch-macbook-pro-solid-state-drive-service" target="_blank" data-i18n="ssd_service_program.ssd_program_url"></a> 
                 <list-link data-url="/show/listing/ssd_service_program/ssd_service_program"></list-link>
             </h3>
         </div>
