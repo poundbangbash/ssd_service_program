@@ -1,4 +1,4 @@
-#!/usr/local/munki/munki-python
+#!/usr/local/munkireport/munkireport-python3
 
 """
 SSD service program reporting tool to determine which machines need to be serviced according to https://www.apple.com/support/13-inch-macbook-pro-solid-state-drive-service-program/
